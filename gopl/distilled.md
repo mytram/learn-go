@@ -10,6 +10,11 @@
 * package `net/http` and `http.Get(url)`
 * package `io/ioutil` and `ioutil.ReadAll`
 
+## CHAPTER 4 COMPOSITE TYPES
+
+* arrays: `numbers := [...]int{1, 2, 3}`
+* slices: `var slice []int`
+
 ## CHAPTER 10 PACKAGES AND THE GO TOOL
 
 ### 10.1. Introduction
