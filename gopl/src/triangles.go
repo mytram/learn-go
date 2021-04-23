@@ -5,6 +5,26 @@ import (
 	"strings"
 )
 
+type List struct {
+	Elements []int
+}
+
+type Operator func(int) int
+
+func (l *List) At(position int) int {
+	return l.Elements[position]
+}
+
+func (l *List) Each(operator Operator) *List {
+	newList := List{Elements: make([]int, len(l.Elements))}
+
+	for i, v := range l.Elements {
+		newList.Elements[i] = operator(v)
+	}
+
+	return &newList
+}
+
 func copySlice(src []int) []int {
 	var dst []int
 
@@ -16,6 +36,13 @@ func copySlice(src []int) []int {
 }
 
 func main() {
+	list := new(List)
+	list.Elements = []int{1, 2, 3}
+
+	newList := list.Each(func(a int) int { return a * 2 })
+
+	fmt.Println(newList.Elements)
+
 	// there are 20 rods
 	var rods [20]int
 
